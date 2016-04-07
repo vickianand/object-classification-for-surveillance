@@ -13,7 +13,7 @@ train_dir = "CSVs/" + sys.argv[1]
 test_dir = "CSVs/" + sys.argv[2]
 
 
-Rsol = 32
+Rsol = 200
 
 
 def get_HoG(xs, size_cell, size_block, orientation):
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         print "size of training-set, test-set = ", nTrain, ", ", nTest
         print "HoG Params: orientations = ", 3, ", pixels_per_cell = ", 4, ", cells_per_block = ", 3
         print "following are the results on varying the number of estimators :\n-----------------------------------"
-        rang = range(10,111, 50)
+        rang = range(100,111, 50)
         ans = []
         for i in rang:
             ans.append(get_rf_results(num_estimators=i))

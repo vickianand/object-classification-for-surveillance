@@ -30,7 +30,6 @@ frames = get_frames('label_data/' +vf_name+'.json', int(fcount))
 #print frames[0][0][u'occluded']
 
 path = os.getcwd()
-path = path + '/filtered_images'
 
 object_id=0
 cap = cv2.VideoCapture(video)

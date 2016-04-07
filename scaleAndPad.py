@@ -61,5 +61,5 @@ for label in labels :
 # print label_vector
 print x, y, len(v), len(label_vector)
 
-np.savetxt( 'CSVs' + directory+ str(Rsol) + "_ftr.csv", data_vector, delimiter=",", fmt='%d')
-np.savetxt( 'CSVs' + directory+ str(Rsol) + "_lbl.csv", label_vector, delimiter=",", fmt='%d')
+np.savetxt( 'CSVs/' + directory+ str(Rsol) + "_ftr.csv", data_vector, delimiter=",", fmt='%d')
+np.savetxt( 'CSVs/' + directory+ str(Rsol) + "_lbl.csv", label_vector, delimiter=",", fmt='%d')
