@@ -1,0 +1,16 @@
+*.jpg
+*.mov
+*.dav
+
+*.pem
+
+*.pdf
+
+*.zip
+
+*.pyc
+*.pkl
+*.mat
+*.xml
+*.csv
+*.html*
