@@ -1,0 +1,57 @@
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  3 , pixels_per_cell =  4 , cells_per_block =  3
+following are the results on varying the number of estimators :
+-----------------------------------
+Number of trees in forest =  25
+Mean accuracy: 	0.672778561354
+confusion matrix: 
+[[ 77  33   6   0   0   0]
+ [ 10  75  49  13   3   4]
+ [  1   6 122  24  10   6]
+ [  0   4  15  53   2   6]
+ [  0   1  22   3  64   8]
+ [  0   4   2   0   0  86]] 
+
+Number of trees in forest =  50
+Mean accuracy: 	0.692524682652
+confusion matrix: 
+[[ 82  27   7   0   0   0]
+ [  9  75  59   6   1   4]
+ [  0   6 128  20  10   5]
+ [  0   1  19  52   3   5]
+ [  0   0  21   0  69   8]
+ [  0   4   1   1   1  85]] 
+
+Number of trees in forest =  75
+Mean accuracy: 	0.691114245416
+confusion matrix: 
+[[ 78  32   6   0   0   0]
+ [ 10  70  58   7   4   5]
+ [  0   1 132  22  10   4]
+ [  0   3  19  50   3   5]
+ [  0   0  20   0  72   6]
+ [  0   3   0   0   1  88]] 
+
+Number of trees in forest =  100
+Mean accuracy: 	0.7023977433
+confusion matrix: 
+[[ 78  29   9   0   0   0]
+ [  9  72  57  10   2   4]
+ [  0   1 138  20   8   2]
+ [  0   3  15  54   2   6]
+ [  0   0  21   0  69   8]
+ [  0   4   1   0   0  87]] 
+
+Number of trees in forest =  125
+Mean accuracy: 	0.698166431594
+confusion matrix: 
+[[ 78  27  11   0   0   0]
+ [  9  73  57   7   4   4]
+ [  0   2 130  23   9   5]
+ [  0   3  11  56   3   7]
+ [  0   0  20   2  70   6]
+ [  0   4   0   0   0  88]] 
+
+
+~~~~~~~~~~~~~~~~~~ total time taken = 25.2471699715 seconds ~~~~~~~~~~~~~~~~~~
+

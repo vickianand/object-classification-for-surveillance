@@ -1,0 +1,1 @@
+number of Car = 488number of Autorickshaw = 922number of Person = 696number of Rickshaw = 643number of Bicycle = 798number of Motorcycle = 981

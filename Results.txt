@@ -1,0 +1,14 @@
+For old - train and test sets (Test chosen 1/6 randomly from collection, Train 4/6 from same)
+================================================================================================
+*	Accuracy went as high as 91.28 %
+*	Confusion Matrix : 
+[[111   4   1   0   0   0]
+ [ 12 102  18   0   0   1]
+ [  5   6 151   0   0   2]
+ [  0   1   6 101   0   0]
+ [  0   0   5   0 149   0]
+ [  0   0   4   0   1  77]] 
+
+ *	Because of very high repetition of images.
+
+ 

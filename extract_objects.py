@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # from get_frames import get_frames
 import cv2
 
@@ -39,7 +41,7 @@ path = os.getcwd()
 object_id=0
 cap = cv2.VideoCapture(video)
 fno = 0 
-cv2.namedWindow("image",flags=cv2.WINDOW_NORMAL)
+# cv2.namedWindow("image",flags=cv2.WINDOW_NORMAL)
 
 i=0
 print "Extracting and saving cropped object images ..."

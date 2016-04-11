@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # from get_frames import get_frames
 import cv2
 
@@ -9,12 +11,12 @@ import time
 start_time = time.time()
 
 # for cutting the some fraction of frames during entry and exit of objects
-entry_cut_factor = 5
-exit_cut_factor = 5
+entry_cut_factor = 100
+exit_cut_factor = 100
 
 # factor for filtering repetition
-cut_factor_slow = 16
-cut_factor_medium = 8
+cut_factor_slow = 10
+cut_factor_medium = 6
 cut_factor_fast = 4
 
 repetition_cut_factor = {

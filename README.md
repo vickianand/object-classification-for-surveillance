@@ -47,6 +47,12 @@ Below are some the different techniques tried by us to improve the results :-
 *	vggnet
 
 
+# Observations about the obtained dataset
+*	Bicycle and Motorcycle images were of both types - with and without the rider cropped. So it may be helpful in the sense that sometimes foreground detector miss the the rider.
+*	However for labeling task instructions were given to not include the riders of the two-wheelers. Which is wrong I guess. We should have labeled by taking the rider in the box.
+
+
+
 ## Tests
 
 ## Contributors

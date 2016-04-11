@@ -1,0 +1,49 @@
+LinearSVC results for  _grey_ftr.csv  with feature and resolution =  30
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  3 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  675
+Mean accuracy: 	0.672778561354
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  4 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  900
+Mean accuracy: 	0.67418899859
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  5 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  1125
+Mean accuracy: 	0.703808180536
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  6 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  1350
+Mean accuracy: 	0.709449929478
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  1575
+Mean accuracy: 	0.717912552891
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  8 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  1800
+Mean accuracy: 	0.696755994358
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  9 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  2025
+Mean accuracy: 	0.705218617772
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  10 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  2250
+Mean accuracy: 	0.708039492243
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  11 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  2475
+Mean accuracy: 	0.71509167842
+------------------------------------------------------
+[0.6727785613540197, 0.67418899858956272, 0.70380818053596617, 0.70944992947813823, 0.71791255289139633, 0.69675599435825109, 0.70521861777150918, 0.70803949224259521, 0.71509167842031029]
+
+~~~~~~~~~~~~~~~~~~ total time taken = 121.831269979 seconds ~~~~~~~~~~~~~~~~~~

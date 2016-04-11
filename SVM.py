@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys, os, time
 # from mnist import MNIST
 
@@ -12,11 +14,13 @@ from sklearn import metrics
 import sys
 from numpy import genfromtxt
 
-train_file = sys.argv[1]
-test_file = sys.argv[2]
+extnsn = "_grey_ftr.csv"
+Rsol = 30
 
+print "LinearSVC results for ", extnsn, " with feature and resolution = ", Rsol
 
-Rsol = 64
+train_dir = "CSVs/" + sys.argv[1].rstrip('/')
+test_dir = "CSVs/" + sys.argv[2].rstrip('/')
 
 
 def get_HoG(xs, size_cell, size_block, orientation):
@@ -29,52 +33,17 @@ def get_HoG(xs, size_cell, size_block, orientation):
         hog_xs.append(fd)
     return hog_xs
 
-
-
-def get_balanced_sets(labels, n):
-    m = len(labels)
-    if n == m:
-        return np.arange(n)
-
-    q = n/10
-    r = n - q*10
-    nums = [q for i in range(10)]
-    for i in range(10):
-        if i < r: nums[i] += 1
-    idxs = []
-
-    for i in range(m):
-        if nums[labels[i]] > 0:
-            nums[labels[i]] -= 1
-            idxs.append(i)
-    return idxs
-
 X_train, y_train = [], []
 X_test, y_test = [], []
 
-def build_data_sets(n_train=10000, n_test=1000, size_cell=4, size_block=3, orientation=3):
+
+def build_data_sets(size_cell=3, size_block=3, orientation=7):
     global X_train, y_train, X_test, y_test
     
-    X_train = genfromtxt(train_file +  str(Rsol) +"_ftr.csv", delimiter=',', dtype=int)
-    y_train = genfromtxt(train_file +  str(Rsol) +"_lbl.csv", delimiter=',', dtype=int)
-    X_test = genfromtxt(test_file +  str(Rsol) +"_ftr.csv", delimiter=',', dtype=int)
-    y_test = genfromtxt(test_file +  str(Rsol) +"_lbl.csv", delimiter=',', dtype=int)
-
-
-
-
-    # mnist = datasets.fetch_mldata('MNIST original')
-    # features = np.array(mnist.data, 'int16')
-    # labels = np.array(mnist.target, 'int')
-
-    # train_idx = get_balanced_sets(labels[:60000], n_train)
-    # test_idx = get_balanced_sets(labels[60000:], n_test)
-    # for i in range(n_test):
-    #     test_idx[i] += 60000
-
-    # X_train, y_train = features[train_idx], labels[train_idx]
-    # X_test, y_test = features[test_idx], labels[test_idx]
-
+    X_train = genfromtxt(train_dir +  str(Rsol) + extnsn, delimiter=',', dtype=int)
+    y_train = genfromtxt(train_dir +  str(Rsol) +"_lbl.csv", delimiter=',', dtype=int)
+    X_test =  genfromtxt(test_dir +  str(Rsol) + extnsn, delimiter=',', dtype=int)
+    y_test =  genfromtxt(test_dir +  str(Rsol) +"_lbl.csv", delimiter=',', dtype=int)
 
 
     X_train = get_HoG(X_train, size_cell, size_block, orientation)
@@ -82,7 +51,7 @@ def build_data_sets(n_train=10000, n_test=1000, size_cell=4, size_block=3, orien
 
 
 
-def get_rf_results(num_estimators=10):
+def get_svc_results(num_estimators=10):
     
     global X_train, y_train, X_test, y_test
 
@@ -93,10 +62,9 @@ def get_rf_results(num_estimators=10):
 
     y_pred = clf.predict(X_test)
     mean_accuracy = clf.score(X_test, y_test)
-    print "Number of trees in forest = ", num_estimators
     
     print "Mean accuracy: \t", mean_accuracy
-    print "confusion matrix: \n", metrics.confusion_matrix(y_test, y_pred), "\n"
+    # print "confusion matrix: \n", metrics.confusion_matrix(y_test, y_pred), "\n"
 
     return mean_accuracy
 
@@ -110,24 +78,46 @@ if __name__ == "__main__":
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore",category=DeprecationWarning)
         
-        nTrain, nTest = 10000, 1000
-        build_data_sets()
-        
-        print "size of training-set, test-set = ", nTrain, ", ", nTest
-        print "HoG Params: orientations = ", 3, ", pixels_per_cell = ", 4, ", cells_per_block = ", 3
-        print "following are the results on varying the number of estimators :\n-----------------------------------"
-        rang = range(10, 11)
+
+        # rang = range(3, 12)
+        # ans = []
+        # for i in rang:
+
+        #     build_data_sets(orientation=i)
+        #     nTrain, nTest = len(y_train), len(y_test)
+            
+        #     print "size of training-set, test-set = ", nTrain, ", ", nTest
+        #     print "HoG Params: orientations = ", i, ", pixels_per_cell = ", 4, ", cells_per_block = ", 3
+        #     print "Dimension of feature vectors = ", len(X_train[0])        
+        #     ans.append(get_svc_results(num_estimators=i))
+        #     print "------------------------------------------------------"
+        # print ans
+
+        # Best accuracy came out for orientations = 7
+        rang = range(1, 10)
         ans = []
         for i in rang:
-            ans.append(get_rf_results(num_estimators=i))
-        
+
+            build_data_sets(size_cell=i)
+            nTrain, nTest = len(y_train), len(y_test)
+            
+            print "size of training-set, test-set = ", nTrain, ", ", nTest
+            print "HoG Params: orientations = ", 7, ", pixels_per_cell = ", i, ", cells_per_block = ", 3
+            print "Dimension of feature vectors = ", len(X_train[0])        
+            ans.append(get_svc_results())
+            print "------------------------------------------------------"
         print ans
 
+        param = "HoG_Cell-Size"
 
-        # plt.plot(rang, ans, linewidth=2.0)
-        # plt.xlabel("number of trees")
-        # plt.ylabel("mean accuracy")
-        # plt.savefig("p2_figs/num_estimators.png")
-        # plt.close()
+        plt.plot(rang, ans, linewidth=2.0)
+        plt.xlabel(param)
+        plt.ylabel("mean accuracy")
+        figdir = 'SVC_figs'
+        if not os.path.exists(figdir):
+            os.mkdir(figdir)
+        plt.savefig(figdir+"/" +param +".png")
+        plt.close()
 
     print "\n~~~~~~~~~~~~~~~~~~ total time taken = %s seconds ~~~~~~~~~~~~~~~~~~\n" %(time.time() - start_time)
+
