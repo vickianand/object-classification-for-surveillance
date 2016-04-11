@@ -37,6 +37,16 @@ Below are some the different techniques tried by us to improve the results :-
 *	Moderated using ```cut_factor_slow```, ```cut_factor_medium``` and ```cut_factor_fast``` variables in ```extract_filtered_objects.py``` script. Look at the use of these variable in the script to understand the implementation. 
 
 
+## To Do
+
+# Explore following for feature extraction :
+*	PCA
+*	HOG
+*	SIFT
+*	AlexNet
+*	vggnet
+
+
 ## Tests
 
 ## Contributors

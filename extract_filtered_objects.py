@@ -9,7 +9,8 @@ import time
 start_time = time.time()
 
 # for cutting the some fraction of frames during entry and exit of objects
-edge_cut_factor = 5
+entry_cut_factor = 5
+exit_cut_factor = 5
 
 # factor for filtering repetition
 cut_factor_slow = 16
@@ -53,7 +54,7 @@ def get_frames(fname, frame_count):
 			frames_list = obj_frames[obj_id].keys()
 			n = len(frames_list)
 			#filter the edges (from entry and exit)
-			frames_list = frames_list[(n/edge_cut_factor) : n-(n/edge_cut_factor)]
+			frames_list = frames_list[(n/entry_cut_factor) : n-(n/exit_cut_factor)]
 			
 			#filter for repetition 
 			i = 0
@@ -131,7 +132,7 @@ while(cap.isOpened()):
 			continue;
 	i += 1
 	if(i%10):
-		print "\r", float(i*100)/fcount , " Complete",
+		print "\r", float(i*100)/fcount , "%% Complete",
 
 print "\r", float(i*100)/fcount , " Complete",
 print "\n~~~~~~~~~ total time taken = %s seconds ~~~~~~~~~\n" %(time.time() - start_time)
