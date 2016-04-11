@@ -1,0 +1,44 @@
+LinearSVC results for  _grey_ftr.csv  with feature and resolution =  30
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  2
+Dimension of feature vectors =  2268
+Mean accuracy: 	0.675599435825
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  3
+Dimension of feature vectors =  4032
+Mean accuracy: 	0.700987306065
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  4
+Dimension of feature vectors =  5488
+Mean accuracy: 	0.720733427362
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  5
+Dimension of feature vectors =  6300
+Mean accuracy: 	0.716502115656
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  6
+Dimension of feature vectors =  6300
+Mean accuracy: 	0.695345557123
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  7
+Dimension of feature vectors =  5488
+Mean accuracy: 	0.684062059238
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  8
+Dimension of feature vectors =  4032
+Mean accuracy: 	0.668547249647
+------------------------------------------------------
+size of training-set, test-set =  3906 ,  709
+HoG Params: orientations =  7 , pixels_per_cell =  4 , cells_per_block =  9
+Dimension of feature vectors =  2268
+Mean accuracy: 	0.645980253879
+------------------------------------------------------
+[0.67559943582510573, 0.70098730606488013, 0.72073342736248236, 0.71650211565585331, 0.69534555712270807, 0.68406205923836394, 0.66854724964739065, 0.64598025387870239]
+
+~~~~~~~~~~~~~~~~~~ total time taken = 148.637389183 seconds ~~~~~~~~~~~~~~~~~~

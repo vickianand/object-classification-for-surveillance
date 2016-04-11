@@ -1,0 +1,1 @@
+/home/ubuntu/torch/install/bin:/home/ubuntu/torch/install/bin:/usr/local/cuda/bin:/home/ubuntu/anaconda2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games

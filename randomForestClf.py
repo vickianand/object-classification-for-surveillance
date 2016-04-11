@@ -37,7 +37,7 @@ def get_HoG(xs, size_cell, size_block, orientation):
 X_train, y_train = [], []
 X_test, y_test = [], []
 
-def build_data_sets(size_cell=4, size_block=3, orientation=3):
+def build_data_sets(size_cell=4, size_block=4, orientation=7):
     global X_train, y_train, X_test, y_test
     
     X_train = genfromtxt(train_dir +  str(Rsol) + extnsn, delimiter=',', dtype=int)

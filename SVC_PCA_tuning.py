@@ -3,6 +3,7 @@
 import sys, os, time
 
 from sklearn.svm import LinearSVC
+from sklearn import decomposition
 
 import numpy as np
 from sklearn import datasets
@@ -21,21 +22,16 @@ train_dir = "CSVs/" + sys.argv[1].rstrip('/')
 test_dir = "CSVs/" + sys.argv[2].rstrip('/')
 
 
-def get_HoG(xs, size_cell, size_block, orientation):
-    hog_xs = []
-    for x in xs:
-        fd = hog(x.reshape((Rsol, Rsol)),
-                    orientations=orientation,
-                    pixels_per_cell=(size_cell, size_cell),
-                    cells_per_block=(size_block, size_block), visualise=False)
-        hog_xs.append(fd)
-    return hog_xs
-
 X_train, y_train = [], []
 X_test, y_test = [], []
 
+def get_PCA(Xs, n_components):
+    pca = decomposition.PCA(n_components=n_components)
+    pca.fit(Xs)
+    return pca.transform(Xs)
 
-def build_data_sets(size_cell=3, size_block=3, orientation=7):
+
+def build_data_sets(n_components=10):
     global X_train, y_train, X_test, y_test
     
     X_train = genfromtxt(train_dir +  str(Rsol) + extnsn, delimiter=',', dtype=int)
@@ -43,13 +39,11 @@ def build_data_sets(size_cell=3, size_block=3, orientation=7):
     X_test =  genfromtxt(test_dir +  str(Rsol) + extnsn, delimiter=',', dtype=int)
     y_test =  genfromtxt(test_dir +  str(Rsol) +"_lbl.csv", delimiter=',', dtype=int)
 
-
-    X_train = get_HoG(X_train, size_cell, size_block, orientation)
-    X_test = get_HoG(X_test, size_cell, size_block, orientation)
-
+    X_train = get_PCA(X_train, n_components)
+    X_test = get_PCA(X_test, n_components)
 
 
-def get_svc_results(num_estimators=10):
+def get_svc_results():
     
     global X_train, y_train, X_test, y_test
 
@@ -76,49 +70,21 @@ if __name__ == "__main__":
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore",category=DeprecationWarning)
         
-        # rang = range(3, 12)
-        # ans = []
-        # for i in rang:
-
-        #     build_data_sets(orientation=i)
-        #     nTrain, nTest = len(y_train), len(y_test)
-            
-        #     print "size of training-set, test-set = ", nTrain, ", ", nTest
-        #     print "HoG Params: orientations = ", i, ", pixels_per_cell = ", 4, ", cells_per_block = ", 3
-        #     print "Dimension of feature vectors = ", len(X_train[0])        
-        #     ans.append(get_svc_results(num_estimators=i))
-        #     print "------------------------------------------------------"
-        # print ans
-
-        # Best accuracy came out for orientations = 7
-        # rang = range(2, 10)
-        # ans = []
-        # for i in rang:
-
-        #     build_data_sets(size_cell=i)
-        #     nTrain, nTest = len(y_train), len(y_test)
-            
-        #     print "size of training-set, test-set = ", nTrain, ", ", nTest
-        #     print "HoG Params: orientations = ", 7, ", pixels_per_cell = ", i, ", cells_per_block = ", 3
-        #     print "Dimension of feature vectors = ", len(X_train[0])        
-        #     ans.append(get_svc_results())
-        #     print "------------------------------------------------------"
-        # print ans
-
-        rang = range(2, 10)
+        rang = range(2, 120, 4)
         ans = []
         for i in rang:
 
-            build_data_sets(size_block=i)
+            build_data_sets(n_components=i)
             nTrain, nTest = len(y_train), len(y_test)
             
-            print "size of training-set, test-set = ", nTrain, ", ", nTest
-            print "HoG Params: orientations = ", 7, ", pixels_per_cell = ", 4, ", cells_per_block = ", i
-            print "Dimension of feature vectors = ", len(X_train[0])        
+            if i==rang[0]:
+                print "size of training-set, test-set = ", nTrain, ", ", nTest
+                print "Dimension of feature vectors = ", len(X_train[0])        
+            print "PCA Params: n_components = ", i
             ans.append(get_svc_results())
             print "------------------------------------------------------"
         print ans
-        param = "HoG_Block-Size"
+        param = "PCA-num-components"
 
 
         plt.plot(rang, ans, linewidth=2.0)
