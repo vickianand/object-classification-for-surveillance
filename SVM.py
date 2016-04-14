@@ -76,35 +76,6 @@ if __name__ == "__main__":
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore",category=DeprecationWarning)
         
-        # rang = range(3, 12)
-        # ans = []
-        # for i in rang:
-
-        #     build_data_sets(orientation=i)
-        #     nTrain, nTest = len(y_train), len(y_test)
-            
-        #     print "size of training-set, test-set = ", nTrain, ", ", nTest
-        #     print "HoG Params: orientations = ", i, ", pixels_per_cell = ", 4, ", cells_per_block = ", 3
-        #     print "Dimension of feature vectors = ", len(X_train[0])        
-        #     ans.append(get_svc_results(num_estimators=i))
-        #     print "------------------------------------------------------"
-        # print ans
-
-        # Best accuracy came out for orientations = 7
-        # rang = range(2, 10)
-        # ans = []
-        # for i in rang:
-
-        #     build_data_sets(size_cell=i)
-        #     nTrain, nTest = len(y_train), len(y_test)
-            
-        #     print "size of training-set, test-set = ", nTrain, ", ", nTest
-        #     print "HoG Params: orientations = ", 7, ", pixels_per_cell = ", i, ", cells_per_block = ", 3
-        #     print "Dimension of feature vectors = ", len(X_train[0])        
-        #     ans.append(get_svc_results())
-        #     print "------------------------------------------------------"
-        # print ans
-
         rang = range(2, 10)
         ans = []
         for i in rang:

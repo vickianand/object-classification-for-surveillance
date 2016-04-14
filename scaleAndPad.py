@@ -20,6 +20,7 @@ labels = lblMap.keys()
 
 data_vector = []
 clr_data_vector = []
+bnw_data_vector = []
 label_vector = []
 
 for label in labels :
@@ -75,5 +76,5 @@ for label in labels :
 print x, y, len(v), len(v1), len(label_vector)
 
 np.savetxt( 'CSVs/' + directory + str(Rsol) + "_grey_ftr.csv", data_vector, delimiter=",", fmt='%d')
-np.savetxt( 'CSVs/' + directory + str(Rsol) + "_clr_ftr.csv", data_vector, delimiter=",", fmt='%d')
+np.savetxt( 'CSVs/' + directory + str(Rsol) + "_clr_ftr.csv", clr_data_vector, delimiter=",", fmt='%d')
 np.savetxt( 'CSVs/' + directory + str(Rsol) + "_lbl.csv", label_vector, delimiter=",", fmt='%d')
