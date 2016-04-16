@@ -4,7 +4,6 @@
 
 *.pem
 
-*.pdf
 
 *.zip
 
@@ -12,7 +11,15 @@
 *.pkl
 *.mat
 *.xml
-*.csv
 *.html*
 
+
 *.png
+
+CSVs/
+! CSVs/test_dir30_grey_ftr.csv
+! CSVs/test_dir30_lbl.csv
+! CSVs/train_dir30_grey_ftr.csv
+! CSVs/train_dir30_lbl.csv
+
+label_data/

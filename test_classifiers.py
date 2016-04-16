@@ -131,7 +131,7 @@ def AB_results(): # AdaBoostClassifier
 	plt.savefig("temp_plain.png")
 
 
-def SVC_results(): # AdaBoostClassifier
+def SVC_results():
 	print "--------------LinearSVC-----------------"
 	rang = [1]
 	

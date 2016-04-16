@@ -52,10 +52,6 @@ Below are some the different techniques tried by us to improve the results :-
 *	However for labeling task instructions were given to not include the riders of the two-wheelers. Which is wrong I guess. We should have labeled by taking the rider in the box.
 
 
-
-## Tests
-
-## Contributors
-
-
-## License
+## Data Files
+*	[zip archive of training image set](https://drive.google.com/open?id=0B_BEZGP3hXJQRGpaTHdnMGtqMnc "training image set")
+*	[zip archive of test image set](https://drive.google.com/open?id=0B_BEZGP3hXJQV0t2WXFmUUstMTA "test image set")
